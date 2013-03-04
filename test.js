@@ -1,11 +1,18 @@
 var test = require('tape')
   , unhtml = require('./')
 
-test('Converts keyword-based escapes', function(t) {
+test('Converts entity-based escapes', function(t) {
   t.plan(3)
   t.equal(unhtml('Hello &amp; World'), 'Hello & World')
   t.equal(unhtml('Hello &copy; World'), 'Hello © World')
   t.equal(unhtml('Hello &copy; World &amp;&amp;'), 'Hello © World &&')
+})
+
+test('Case-insensitive', function(t) {
+  t.plan(3)
+  t.equal(unhtml('Hello &AMP; World'), 'Hello & World')
+  t.equal(unhtml('Hello &AmP; World'), 'Hello & World')
+  t.equal(unhtml('Hello &amp; World'), 'Hello & World')
 })
 
 test('Converts numerical escapes', function(t) {

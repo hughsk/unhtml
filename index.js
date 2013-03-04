@@ -1,7 +1,22 @@
-var codes = require('./codes')
+var entities = require('html5-entities')
   , quotemeta = require('quotemeta')
 
-var characterExp = new RegExp(Object.keys(codes).map(quotemeta).join('|'), 'gi')
+function convertEntityKeys(entity) {
+  var lowercase = entity.toLowerCase().slice(0, -1)
+    , value = entities[entity]
+
+  delete entities[entity]
+  entities[lowercase] = value
+
+  return lowercase
+}
+
+var characterExp = Object.keys(entities)
+    .map(convertEntityKeys)
+    .map(quotemeta)
+    .join('|')
+
+characterExp = new RegExp('\\&(' + characterExp + ')\\;', 'gi')
 
 function unhtml(string) {
   string = String(string || '')
@@ -12,12 +27,12 @@ function unhtml(string) {
       return String.fromCharCode(code)
     })
     // Convert &amp; and co.
-    .replace(characterExp, function(html) {
-      return codes[html]
+    .replace(characterExp, function(match, html) {
+      return entities[html.toLowerCase()]
     })
 
   return string
 }
 
 module.exports = unhtml
-module.exports.codes = codes
+module.exports.entities = entities
