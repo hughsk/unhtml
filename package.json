@@ -6,7 +6,9 @@
   "dependencies": {
     "quotemeta": "~0.0.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "tape": "~0.2.2"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
