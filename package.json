@@ -1,0 +1,26 @@
+{
+  "name": "unhtml",
+  "version": "0.0.1",
+  "description": "Turn HTML-escaped characters and tags back into plain text.",
+  "main": "index.js",
+  "dependencies": {
+    "quotemeta": "~0.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/hughsk/unhtml.git"
+  },
+  "keywords": [
+    "html",
+    "escape",
+    "cleanup",
+    "character",
+    "replace"
+  ],
+  "author": "Hugh Kennedy <hughskennedy@gmail.com> (http://hughskennedy.com/)",
+  "license": "MIT"
+}
