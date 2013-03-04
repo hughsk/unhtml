@@ -1,6 +1,6 @@
 {
   "name": "unhtml",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Turn HTML-escaped characters and tags back into plain text.",
   "main": "index.js",
   "dependencies": {
