@@ -6,6 +6,7 @@ test('Converts entity-based escapes', function(t) {
   t.equal(unhtml('Hello &amp; World'), 'Hello & World')
   t.equal(unhtml('Hello &copy; World'), 'Hello © World')
   t.equal(unhtml('Hello &copy; World &amp;&amp;'), 'Hello © World &&')
+  t.equal(unhtml('Hello &lt; World'), 'Hello < World')
 })
 
 test('Case-insensitive', function(t) {
